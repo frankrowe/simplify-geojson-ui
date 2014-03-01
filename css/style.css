@@ -3,9 +3,13 @@
 }
 
 .header {
-  text-align: center;
+  text-align: left;
 }
 
-.tools {
-  margin: 10px 0px 10px 0px;
+.tools .row {
+  margin: 0px 0px 10px 0px;
+}
+
+.tools label {
+  float: left;
 }

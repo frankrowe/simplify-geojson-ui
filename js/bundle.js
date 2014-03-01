@@ -28,18 +28,24 @@ $(document).ready(function(){
     if(map.hasLayer(geojsonlayer)) map.removeLayer(geojsonlayer)
     simplifiedgeojson = geojson
     geojsonlayer = L.geoJson(geojson, { style: style }).addTo(map)
-    $('.verticies').html(countVerticies(simplifiedgeojson))
+    $('.vertices').html(countvertices(simplifiedgeojson))
+    $('.geojsonarea').val(JSON.stringify(simplifiedgeojson))
   }
 
   //TODO fix for multipolygons
-  function countVerticies(geojson){
-    var verticies = 0
+  function countvertices(geojson){
+    var vertices = 0
     for(var i = 0; i < geojson.features.length; i++){
       var feature = geojson.features[i]
-      verticies += feature.geometry.coordinates[0].length
+      vertices += feature.geometry.coordinates[0].length
     }
-    return verticies
+    return vertices
   }
+
+  $('.add').click(function(e){
+    var geojson = JSON.parse($('.geojsonarea').val())
+    addGeoJson(geojson)
+  })
 
   $('.simplify').click(function(e){
     var tolerance = $('input[name="tolerance"]').val()
