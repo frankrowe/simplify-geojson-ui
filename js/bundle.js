@@ -19,7 +19,8 @@ $(document).ready(function(){
 
   function getGeoJson(){
     $.getJSON('data/mdcnty.geojson', function(res){
-      addGeoJson(res)
+      originalgeojson = res
+      addGeoJson(originalgeojson)
     })
   }
   getGeoJson()
@@ -42,8 +43,10 @@ $(document).ready(function(){
     return vertices
   }
 
+  //TODO verify valid geojson
   $('.add').click(function(e){
     var geojson = JSON.parse($('.geojsonarea').val())
+    originalgeojson = geojson
     addGeoJson(geojson)
   })
 
@@ -56,7 +59,7 @@ $(document).ready(function(){
   })
 
   $('.reset').click(function(e){
-    getGeoJson()
+    addGeoJson(originalgeojson)
   })
 
 })

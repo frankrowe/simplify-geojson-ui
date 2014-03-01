@@ -4,6 +4,7 @@ $(document).ready(function(){
 
   var map = new L.Map('map').setView(new L.LatLng(38.85, -77), 7)
     , geojsonlayer
+    , originalgeojson
     , simplifiedgeojson
     , style = {
       "color": "#f00"
@@ -18,7 +19,8 @@ $(document).ready(function(){
 
   function getGeoJson(){
     $.getJSON('data/mdcnty.geojson', function(res){
-      addGeoJson(res)
+      originalgeojson = res
+      addGeoJson(originalgeojson)
     })
   }
   getGeoJson()
@@ -44,6 +46,7 @@ $(document).ready(function(){
   //TODO verify valid geojson
   $('.add').click(function(e){
     var geojson = JSON.parse($('.geojsonarea').val())
+    originalgeojson = geojson
     addGeoJson(geojson)
   })
 
@@ -56,7 +59,7 @@ $(document).ready(function(){
   })
 
   $('.reset').click(function(e){
-    getGeoJson()
+    addGeoJson(originalgeojson)
   })
 
 })
