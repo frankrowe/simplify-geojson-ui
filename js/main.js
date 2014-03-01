@@ -1,4 +1,5 @@
 var simplify = require('simplify-geojson')
+  , topojsonserverapi = require("topojson")
 
 $(document).ready(function(){
 
@@ -56,6 +57,13 @@ $(document).ready(function(){
       var geojson = simplify(simplifiedgeojson, tolerance)
       addGeoJson(geojson)
     }
+  })
+
+  $('.topojson').click(function(e){
+    var topology = topojsonserverapi.topology({collection: simplifiedgeojson})
+    topology = topojson.presimplify(topology)
+    var geojson = topojson.feature(topology, topology.objects.collection)
+    addGeoJson(geojson)
   })
 
   $('.reset').click(function(e){
