@@ -1,4 +1,7 @@
-var simplify = require('simplify-geojson')
+var L = require('leaflet')
+  , simplify = require('simplify-geojson') 
+
+L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
 
 $(document).ready(function(){
 

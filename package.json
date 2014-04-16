@@ -1,0 +1,24 @@
+{
+  "name": "simplify-geojson-ui",
+  "version": "0.0.0",
+  "description": "Simplify GeoJSON UI ===================",
+  "main": "index.js",
+  "dependencies": {
+    "simplify-geojson": "0.0.2",
+    "leaflet": "^0.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frankrowe/simplify-geojson-ui"
+  },
+  "author": "Frank Rowe <fsrowe@gmail.com> (http://frankrowe.org/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankrowe/simplify-geojson-ui/issues"
+  },
+  "homepage": "https://github.com/frankrowe/simplify-geojson-ui"
+}
